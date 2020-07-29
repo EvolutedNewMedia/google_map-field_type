@@ -1,0 +1,9 @@
+{
+    "name": "evoluted/googlemap-field_type",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Evoluted\\GooglemapFieldType\\": "src/"
+        }
+    }
+}
