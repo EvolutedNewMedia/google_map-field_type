@@ -1,0 +1,18 @@
+{{ asset_add("scripts.js", "evoluted.field_type.googlemap::js/input.js") }}
+{{ asset_add("styles.css", "evoluted.field_type.googlemap::css/input.css") }}
+
+{% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.googlemap::api_key') ~ '&callback=initMapInputs' %}
+
+<script>
+// Create the script tag, set the appropriate attributes
+if (!window.googlemapInputScriptAdded) {
+	window.googlemapInputScriptAdded = true;
+	var script = document.createElement('script');
+	script.src = '{{ url|raw }}';
+	script.defer = true;
+	document.head.appendChild(script);
+}
+</script>
+
+<div class="map-input">
+</div>
