@@ -1,0 +1,13 @@
+.map-input {
+	&__map {
+		height: 500px;
+	}
+
+	&__address-input {
+		width: 50%;
+		font-size: 1rem;
+		height: 40px;
+		padding: 0px 8px;
+		margin-top: 10px;
+	}
+}

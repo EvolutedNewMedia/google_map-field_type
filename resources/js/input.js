@@ -40,9 +40,6 @@ initMapInputs = function () {
 				return true;
 			});
 
-			//let fondButton = container.querySelector('.map-input__find-btn');
-			//map.controls[google.maps.ControlPosition.TOP_CENTER].push(container.querySelector('.map-input__find-btn'));
-
 			var autocomplete = new google.maps.places.Autocomplete(addressInput);
 			autocomplete.bindTo('bounds', map);
 

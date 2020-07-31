@@ -1,0 +1,14 @@
+{% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMaps' %}
+
+<script>
+// Create the script tag, set the appropriate attributes
+if (!window.googleMapViewScriptAdded) {
+	window.googleMapViewScriptAdded = true;
+	var script = document.createElement('script');
+	script.src = '{{ url|raw }}';
+	script.defer = true;
+	document.head.appendChild(script);
+}
+</script>
+
+<div class="google-map" data-center="{{ center }}"></div>
