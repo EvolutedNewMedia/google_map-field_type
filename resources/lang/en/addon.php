@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title'       => 'Googlemap',
-    'name'        => 'Googlemap Field Type',
+    'title'       => 'Google Map',
+    'name'        => 'Google Map Field Type',
     'description' => ''
 ];

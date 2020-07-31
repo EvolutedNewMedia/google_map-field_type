@@ -1,2 +1,2 @@
-# googlemap-field_type
+# google_map-field_type
 

@@ -1,9 +1,9 @@
-<?php namespace Evoluted\GooglemapFieldType;
+<?php namespace Evoluted\GoogleMapFieldType;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Illuminate\Routing\Router;
 
-class GooglemapFieldTypeServiceProvider extends AddonServiceProvider
+class GoogleMapFieldTypeServiceProvider extends AddonServiceProvider
 {
 
     /**
