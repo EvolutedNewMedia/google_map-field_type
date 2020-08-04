@@ -3,5 +3,5 @@
 return [
     'title'       => 'Google Map',
     'name'        => 'Google Map Field Type',
-    'description' => ''
+    'description' => 'A Google map field type'
 ];
