@@ -2,6 +2,9 @@
 initMaps = function () {
 
 	let initialise = function () {
+		
+		document.body.classList.add('js-google-maps-ready');
+
 		let maps = document.querySelectorAll('.google-map');
 		Array.prototype.forEach.call(maps, function (container) {
 

@@ -4,7 +4,11 @@
 
 {# Create the script tag, set the appropriate attributes. Included here so we can use the setting value for the api key #}
 {% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMaps' %}
-<script type="text/javascript">
+<script>
+	if (document.body.classList.contains('js-google-maps-ready')) {
+		initMaps();
+	}
+
 	if (!document.body.classList.contains('js-google-maps-included')) {
 		document.body.classList.add('js-google-maps-included');
 		var script = document.createElement('script');
