@@ -1,6 +1,6 @@
 {{ asset_add("scripts.js", "evoluted.field_type.google_map::js/map.js") }}
 
-<div class="google-map w-100 h-100 {{ classes|join(' ') }}" data-center="{{ center }}" data-zoom="{{ zoom }}" data-controls={{ controls }}></div>
+<div class="google-map {{ classes|join(' ') }}" data-center="{{ center }}" data-zoom="{{ zoom }}" data-controls={{ controls }}></div>
 
 {# Create the script tag, set the appropriate attributes. Included here so we can use the setting value for the api key #}
 {% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMaps' %}
