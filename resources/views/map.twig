@@ -1,14 +1,15 @@
+{{ asset_add("scripts.js", "evoluted.field_type.google_map::js/map.js") }}
+
+<div class="google-map w-100 h-100 {{ classes|join(' ') }}" data-center="{{ center }}" data-zoom="{{ zoom }}" data-controls={{ controls }}></div>
+
+{# Create the script tag, set the appropriate attributes. Included here so we can use the setting value for the api key #}
 {% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMaps' %}
-
-<script>
-// Create the script tag, set the appropriate attributes
-if (!window.googleMapViewScriptAdded) {
-	window.googleMapViewScriptAdded = true;
-	var script = document.createElement('script');
-	script.src = '{{ url|raw }}';
-	script.defer = true;
-	document.head.appendChild(script);
-}
+<script type="text/javascript">
+	if (!document.body.classList.contains('js-google-maps-included')) {
+		document.body.classList.add('js-google-maps-included');
+		var script = document.createElement('script');
+		script.src = '{{ url|raw }}';
+		script.defer = true;
+		document.head.appendChild(script);
+	}
 </script>
-
-<div class="google-map" data-center="{{ center }}"></div>

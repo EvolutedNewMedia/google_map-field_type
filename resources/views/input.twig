@@ -1,21 +1,25 @@
 {{ asset_add("scripts.js", "evoluted.field_type.google_map::js/input.js") }}
 {{ asset_add("styles.css", "evoluted.field_type.google_map::scss/input.scss") }}
 
-{% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMapInputs&libraries=places' %}
-
-<script>
-// Create the script tag, set the appropriate attributes
-if (!window.googleMapInputScriptAdded) {
-	window.googleMapInputScriptAdded = true;
-	var script = document.createElement('script');
-	script.src = '{{ url|raw }}';
-	script.defer = true;
-	document.head.appendChild(script);
-}
-</script>
-
 <div class="map-input">
 	<div class="map-input__map"></div>
 	<input type="text" class="map-input__address-input" placeholder="Jump to..."/>
 	<input type="hidden" class="map-input__state-input" value="{{ field_type.getValueOrDefault() }}" name="{{ field_type.getInputName() }}">
 </div>
+
+{% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMapInputs&libraries=places' %}
+<script>
+	if (document.body.classList.contains('js-google-maps-ready')) {
+		initMapInputs();
+	}
+
+	// Create the script tag, set the appropriate attributes
+	// Included here so we can use the setting value for the api key
+	if (!document.body.classList.contains('js-google-maps-included')) {
+		document.body.classList.add('js-google-maps-included')
+		var script = document.createElement('script');
+		script.src = '{{ url|raw }}';
+		script.defer = true;
+		document.head.appendChild(script);
+	}
+</script>

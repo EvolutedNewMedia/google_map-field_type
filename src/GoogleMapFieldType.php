@@ -16,8 +16,8 @@ class GoogleMapFieldType extends FieldType
     public function getDefaultValue()
     {
         return json_encode([
-            'lat' => (float)setting_value('evoluted.field_type.google_map::default_latitude', 53.385144016598346),
-            'lng' => (float)setting_value('evoluted.field_type.google_map::default_longitude', -1.4779945323242183),
+            'lat' => setting_value('evoluted.field_type.google_map::default_latitude') ?? 53.3858833,
+            'lng' => setting_value('evoluted.field_type.google_map::default_longitude') ?? -1.4736192,
         ]);
     }
 

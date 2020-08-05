@@ -2,8 +2,13 @@
 initMapInputs = function () {
 
 	let initialise = function () {
-		let maps = document.querySelectorAll('.map-input');
+
+		document.body.classList.add('js-google-maps-ready');
+
+		let maps = document.querySelectorAll('.map-input:not(.initialised)');
 		Array.prototype.forEach.call(maps, function(container) {
+
+			container.classList.add('initialised');
 
 			let stateInput = container.querySelector('.map-input__state-input');
 			let center = JSON.parse(stateInput.value);
