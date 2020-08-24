@@ -9,6 +9,13 @@
 
 {% set url = 'https://maps.googleapis.com/maps/api/js?key=' ~ setting_value('evoluted.field_type.google_map::api_key') ~ '&callback=initMapInputs&libraries=places' %}
 <script>
+	if (window.initMapInputs == undefined) {
+		// Add a temporary callback to keep trying until the regular one loads
+		window.initMapInputs = function() {
+			setTimeout(window.initMapInputs, 100);
+		}
+	}
+
 	if (document.body.classList.contains('js-google-maps-ready')) {
 		initMapInputs();
 	}
