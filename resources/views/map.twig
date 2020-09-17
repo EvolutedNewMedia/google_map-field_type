@@ -7,8 +7,10 @@
 
 <script>
 	if (window.initMaps == undefined) {
-		// Add a temporary callback to keep trying until the regular one loads.
-		// This prevents an error if the google script finishes first
+		/**
+		 * Add a temporary callback to keep trying until the regular one loads.
+		 * This prevents an error if the google script finishes first
+		 */
 		window.initMaps = function() {
 			setTimeout(window.initMaps, 100);
 		}
